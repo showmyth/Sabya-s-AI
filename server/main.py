@@ -9,7 +9,8 @@ search_service = SearchService()
 @app.post("/chat")
 def chat_endpoint(body: ChatBody):
     print("Endpoint hit with query:", body.query)
-    search_service.web_search(body.query)
+    search_result = search_service.web_search(body.query)
+    print(search_result)
     # sort sources
     # LLM
     return body.query
